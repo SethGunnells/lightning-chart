@@ -1,3 +1,5 @@
+import css from '../styles/chart.scss';
+
 import React from 'react';
 import ChartLine from './ChartLine';
 
@@ -9,14 +11,14 @@ export default class ChartSection extends React.Component {
     var title = null;
     if (section.title) {
       title = (
-        <h2 className="chart-section-title">
+        <h2 className={css['chart-section-title']}>
           {section.title.toUpperCase()}
         </h2>
       );
     }
 
     return (
-      <div className="chart-section">
+      <div className={css['chart-section']}>
         {title}
         <div>
           {section.lines.map(function(line) {

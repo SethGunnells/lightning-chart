@@ -1,3 +1,5 @@
+import css from '../styles/chart.scss';
+
 import React from 'react';
 
 const NBSP = '\u00a0';
@@ -40,8 +42,8 @@ export default class ChartLine extends React.Component {
     // If there are no chords for this line, just render the lyrics
     if (!chords) {
       return (
-        <div className="line">
-          <div className="lyrics">{lyrics}</div>
+        <div className={css.line}>
+          <div className={css.lyrics}>{lyrics}</div>
         </div>
       );
     }
@@ -68,7 +70,7 @@ export default class ChartLine extends React.Component {
       }
 
       chordElements.push(
-        <span className="chord" ref={'chord' + pos}>{chord}</span>
+        <span className={css.chord} ref={'chord' + pos}>{chord}</span>
       );
 
       // This is to prevent the "chords" element from collapsing
@@ -77,7 +79,7 @@ export default class ChartLine extends React.Component {
       );
 
       lyricElements.push(
-        <span className="anchor" ref={'anchor' + pos}>{anchor}</span>
+        <span className={css.anchor} ref={'anchor' + pos}>{anchor}</span>
       );
 
       // If this is the last chord to be rendered, figure out the remaining
@@ -96,9 +98,9 @@ export default class ChartLine extends React.Component {
     }
 
     return (
-      <div className="line">
-        <div className="chords">{chordElements}</div>
-        <div className="lyrics">{lyricElements}</div>
+      <div className={css.line}>
+        <div className={css.chords}>{chordElements}</div>
+        <div className={css.lyrics}>{lyricElements}</div>
       </div>
     );
 
