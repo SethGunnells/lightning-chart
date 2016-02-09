@@ -2,7 +2,7 @@
   "name": "lightning-viewer",
   "version": "0.0.1",
   "description": "A React-based live updating chord chart viewer",
-  "main": "index.js",
+  "main": "build/LightningViewer.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
