@@ -1,9 +1,7 @@
 window.testData = {
   title: 'Test Song',
-  version: 3,
-  writers: ['John Doe', 'Brant Craft', 'Seth Gunnells'],
-  performer: 'Hotwerk',
-  author: 'UserIdPlaceholder',
+  writers: ['John Doe', 'Sam Hill', 'Sarah Stewart'],
+  performer: 'Hotwork',
   defaultKey: 'E',
 
   sections: [
