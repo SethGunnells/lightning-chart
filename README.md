@@ -20,7 +20,7 @@ The writers who composed the song, not the artist who performed it.
 The artist whose arrangement or performance this song describes.
 
 ### defaultKey: string
-Lightning Viewer has the ability to change keys to suit the user's preference,
+Lightning Viewer will have the ability to change keys to suit the user's preference,
 but each song needs a reference key from which to start.
 
 ### sections: array of section objects
@@ -47,6 +47,7 @@ This is the chord itself, e.g. Am7, F#maj7b5, 6-.
 #### chord.position: number
 Determines which character over which this chord will be positioned.
 
+## Example Data
     {
       title: 'Test Song',
       writers: ['John Doe', 'Sam Hill', 'Sara Stewart'],
