@@ -1,0 +1,50 @@
+$prefix: lc;
+
+$font-family: Hevletica, sans-serif;
+$offblack: #333;
+
+.#{$prefix}-style-default {
+  &.#{$prefix}-chart {
+    border: 1px solid $offblack;
+    color: $offblack;
+    font-family: $font-family;
+  }
+
+  .#{$prefix}-chart-title {
+    margin: 0;
+  }
+
+  .#{$prefix}-chart-writers {
+    font-size: 14px;
+    font-style: italic;
+    margin: 0 0 24px;
+  }
+
+  .#{$prefix}-chart-section {
+    &:not(:last-child) {
+      margin: 0 0 32px 0;
+    }
+  }
+
+  .#{$prefix}-chart-section-title {
+    font-size: 14px;
+    font-style: italic;
+    margin: 0 0 8px 0;
+  }
+
+  .#{$prefix}-line {
+    margin: 0 0 4px 0;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  .#{$prefix}-chords {
+    margin: 0 0 4px 0;
+
+    .#{$prefix}-chord {
+      font-weight: bold;
+    }
+  }
+}

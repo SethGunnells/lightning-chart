@@ -1,0 +1,18 @@
+:local {
+  .line {
+    position: relative;
+  }
+
+  .anchor {
+    display: inline-block;
+  }
+
+  .chords {
+    height: 1em;
+
+    .chord {
+      display: inline-block;
+      position: absolute;
+    }
+  }
+}

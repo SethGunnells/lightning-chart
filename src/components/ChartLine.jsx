@@ -1,4 +1,4 @@
-import css from '../styles/chart.scss';
+import css from './chartLine.scss';
 
 import React from 'react';
 
@@ -42,8 +42,8 @@ export default class ChartLine extends React.Component {
     // If there are no chords for this line, just render the lyrics
     if (!chords) {
       return (
-        <div className={css.line}>
-          <div className={css.lyrics}>{lyrics}</div>
+        <div className={"lc-line " + css.line}>
+          <div className={"lc-lyrics " + css.lyrics}>{lyrics}</div>
         </div>
       );
     }
@@ -70,7 +70,7 @@ export default class ChartLine extends React.Component {
       }
 
       chordElements.push(
-        <span className={css.chord} ref={'chord' + pos}>{chord}</span>
+        <span className={"lc-chord " + css.chord} ref={'chord' + pos}>{chord}</span>
       );
 
       // This is to prevent the "chords" element from collapsing
@@ -98,9 +98,9 @@ export default class ChartLine extends React.Component {
     }
 
     return (
-      <div className={css.line}>
-        <div className={css.chords}>{chordElements}</div>
-        <div className={css.lyrics}>{lyricElements}</div>
+      <div className={"lc-line " + css.line}>
+        <div className={"lc-chords " + css.chords}>{chordElements}</div>
+        <div className={"lc-lyrics " + css.lyrics}>{lyricElements}</div>
       </div>
     );
 
