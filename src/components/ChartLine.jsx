@@ -1,10 +1,12 @@
 import css from './chartLine.scss';
 
-import React from 'react';
+import { Component } from 'react';
+
+////////////////////////////////////////////////////////////////////////////////
 
 const NBSP = '\u00a0';
 
-export default class ChartLine extends React.Component {
+export default class ChartLine extends Component {
 
   constructor() {
     super();
