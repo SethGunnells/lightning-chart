@@ -7,7 +7,21 @@
     display: inline-block;
   }
 
+  .preChords {
+    display: inline-block;
+    position: relative;
+
+    .preChord {
+      display: inline-block;
+    }
+
+    .preChord:not(:last-child) {
+      margin: 0 10px 0 0;
+    }
+  }
+
   .chords {
+    display: inline-block;
     height: 1em;
 
     .chord {

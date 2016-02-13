@@ -1,6 +1,7 @@
 import css from './chartLine.scss';
 
 import { Component } from 'react';
+import ReactDOM from 'react-dom';
 
 ////////////////////////////////////////////////////////////////////////////////
 
@@ -22,6 +23,13 @@ export default class ChartLine extends Component {
    */
   updatePositions() {
 
+    if (this.props.line.preChords) {
+      let preChords = ReactDOM.findDOMNode(this.refs['preChords']);
+      let lyrics = ReactDOM.findDOMNode(this.refs['lyrics']);
+
+      lyrics.style.paddingLeft = preChords.offsetLeft + preChords.offsetWidth + 10 + "px";
+    }
+
     if (this.props.line.chords) {
       var positions = this.props.line.chords.map(function (chord) {
         return chord.position;
@@ -29,8 +37,8 @@ export default class ChartLine extends Component {
 
       for (let i = 0; i < positions.length; i++) {
         let p = positions[i];
-        let chord = React.findDOMNode(this.refs['chord' + p]);
-        let anchor = React.findDOMNode(this.refs['anchor' + p]);
+        let chord = ReactDOM.findDOMNode(this.refs['chord' + p]);
+        let anchor = ReactDOM.findDOMNode(this.refs['anchor' + p]);
 
         chord.style.left = anchor.offsetLeft + 'px';
       }
@@ -40,6 +48,8 @@ export default class ChartLine extends Component {
   render() {
     var chords = this.props.line.chords;
     var lyrics = this.props.line.lyrics;
+
+    var { preChords } = this.props.line;
 
     // If there are no chords for this line, just render the lyrics
     if (!chords) {
@@ -53,6 +63,14 @@ export default class ChartLine extends Component {
     var chordElements = [];
     var lyricElements = [];
     var prevPos = -1;
+
+    if (preChords) {
+      var preChordElements = preChords
+        .sort((a, b) => {a.position - b.position})
+        .map((pc) => {
+          return <span className={"lc-chord " + css.preChord}>{pc.chord}</span>;
+        });
+    }
 
     for (let i = 0; i < chords.length; i++) {
       let chord = chords[i].chord;
@@ -99,10 +117,24 @@ export default class ChartLine extends Component {
       prevPos = pos;
     }
 
+
+
+    var chordLine = [];
+
+    if (preChords) {
+      chordLine.push(
+        <div className={css.preChords} ref="preChords">{preChordElements}</div>
+      );
+    }
+
+    chordLine.push(
+      <div className={css.chords}>{chordElements}</div>
+    );
+
     return (
       <div className={"lc-line " + css.line}>
-        <div className={"lc-chords " + css.chords}>{chordElements}</div>
-        <div className={"lc-lyrics " + css.lyrics}>{lyricElements}</div>
+        <div className={"lc-chords"}>{chordLine}</div>
+        <div className={"lc-lyrics " + css.lyrics} ref="lyrics">{lyricElements}</div>
       </div>
     );
 
