@@ -16,6 +16,11 @@ module.exports = {
       commonjs: 'react',
       commonjs2: 'react',
       root: 'React'
+    },
+    'react-dom': {
+      commonjs: 'react-dom',
+      commonjs2: 'react-dom',
+      root: 'ReactDOM'
     }
   },
 
